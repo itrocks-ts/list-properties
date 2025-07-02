@@ -1,0 +1,59 @@
+{
+	"author": {
+		"name": "Baptiste Pillot",
+		"email": "baptiste@pillot.fr"
+	},
+	"dependencies": {
+		"@itrocks/class-type": "latest",
+		"@itrocks/decorator": "latest",
+		"@itrocks/property-type": "latest",
+		"@itrocks/reflect": "latest"
+	},
+	"description": "Marks class properties to show as columns in a list/table view",
+	"devDependencies": {
+		"@types/node": "^22.10",
+		"typescript": "~5.8"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"exports": {
+		"import": "./esm/list-properties.js",
+		"require": "./cjs/list-properties.js"
+	},
+	"files": [
+		"LICENSE",
+		"README.md",
+		"*/*.d.ts",
+		"*/*.js",
+		"!*/esm.*"
+	],
+	"homepage": "https://it.rocks",
+	"keywords": [
+		"class",
+		"columns",
+		"decorator",
+		"display",
+		"front",
+		"it.rocks",
+		"list",
+		"property",
+		"properties",
+		"representation",
+		"table",
+		"view"
+	],
+	"license": "ISC",
+	"name": "@itrocks/list-properties",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itrocks-ts/list-properties.git"
+	},
+	"scripts": {
+		"build": "npm run build:cjs && npm run build:esm",
+		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
+	},
+	"types": "./esm/list-properties.d.ts",
+	"version": "0.0.1"
+}
