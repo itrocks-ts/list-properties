@@ -21,7 +21,7 @@ class ListReflectClass<T extends object> extends ReflectClass<T>
 
 export function initListProperties()
 {
-		// @ts-ignore Being added, for use into templates (without type checking)
+	// @ts-ignore Being added, for use into templates (without type checking)
 	ReflectClass.prototype.listProperties = ListReflectClass.prototype.listProperties
 	// @ts-ignore Being added, for use into templates (without type checking)
 	ReflectClass.prototype.listPropertyNames = ListReflectClass.prototype.listPropertyNames

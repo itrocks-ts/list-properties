@@ -55,5 +55,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/list-properties.d.ts",
-	"version": "0.0.1"
+	"version": "0.0.2"
 }
