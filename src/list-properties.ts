@@ -4,7 +4,7 @@ import { listOf }          from './list'
 
 export * from './list'
 
-class ListReflectClass<T extends object> extends ReflectClass<T>
+export class ListReflectClass<T extends object> extends ReflectClass<T>
 {
 
 	listProperties()
