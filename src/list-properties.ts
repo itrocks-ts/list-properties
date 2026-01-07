@@ -9,7 +9,7 @@ class ListReflectClass<T extends object> extends ReflectClass<T>
 
 	listProperties()
 	{
-		return listOf(this.type).map(propertyName => new ReflectProperty(this, propertyName))
+		return this.listPropertyNames().map(propertyName => new ReflectProperty(this, propertyName))
 	}
 
 	listPropertyNames()
