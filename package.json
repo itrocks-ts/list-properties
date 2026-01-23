@@ -5,6 +5,7 @@
 	},
 	"dependencies": {
 		"@itrocks/class-type": "latest",
+		"@itrocks/class-view": "latest",
 		"@itrocks/decorator": "latest",
 		"@itrocks/property-type": "latest",
 		"@itrocks/reflect": "latest"
@@ -55,5 +56,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/list-properties.d.ts",
-	"version": "0.1.1"
+	"version": "0.1.2"
 }

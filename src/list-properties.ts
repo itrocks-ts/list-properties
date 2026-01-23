@@ -2,7 +2,7 @@ import { ReflectClass }    from '@itrocks/reflect'
 import { ReflectProperty } from '@itrocks/reflect'
 import { listOf }          from './list'
 
-export * from './list'
+export { defaultListProperties, List, listOf } from './list'
 
 export class ListReflectClass<T extends object> extends ReflectClass<T>
 {

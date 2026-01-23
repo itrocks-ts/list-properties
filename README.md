@@ -13,11 +13,12 @@ Marks class properties to show as columns in a list/table view.
 This module extends the [@itrocks/reflect](https://github.com/itrocks-ts/reflect)
 system to determine which class properties should be displayed in a list or table view.
 
-Use the `@List()` decorator on a class to declare which properties are shown in list views.
-You can also rely on default behaviour that omits many-to-many properties
-or selects only representative ones when too many exist.
-
 To enable these extensions, call `initListProperties()` once at application startup.
+
+Use the `@List()` decorator on a class to explicitly declare which properties are shown in list views.
+You can also rely on default behaviour that omits
+[CollectionType](https://github.com/itrocks-ts/property-type#collectiontype) properties
+or selects only [@Representative](https://github.com/itrocks-ts/representative) ones when more than 5 properties exist.
 
 # API
 
@@ -27,7 +28,8 @@ To enable these extensions, call `initListProperties()` once at application star
 initListProperties(): void
 ```
 
-Call this once at runtime during app initialisation.
+Call this once at runtime during app initialisation.\
+This must be called before any module using [listOf()](#listof) or `ReflectClass.listProperties()` is loaded.
 
 This extends the [ReflectClass](https://github.com/itrocks-ts/reflect#ReflectClass) prototype with two new methods:
 - `listProperties(): ReflectProperty[]` - returns ReflectProperty instances
@@ -41,9 +43,9 @@ This extends the [ReflectClass](https://github.com/itrocks-ts/reflect#ReflectCla
 
 Marks the given properties to be listed in a table-like UI.
 
-If no properties are passed, a default list is inferred using:
-- all non-many-to-many properties (when ≤ 5),
-- otherwise only the @Representative properties.
+When no explicit property list is provided, a default list is inferred using:
+- all non-[collection](https://github.com/itrocks-ts/property-type#collectiontype) properties (when ≤ 5),
+- otherwise (more than 5) only the [@Representative](https://github.com/itrocks-ts/representative) properties.
 
 **Parameters:**
 
@@ -67,7 +69,8 @@ class User {
 listOf(target: ObjectOrType<T>): string[]
 ```
 
-Returns the array of property names to be used in list views, based on the @List decorator or default rules.
+Returns an ordered list of property names to be used in list views,
+based on the `@List()` decorator value or default rules.
 
 # Template integration
 
