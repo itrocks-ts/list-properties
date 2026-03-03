@@ -8,6 +8,7 @@
 		"@itrocks/class-view": "latest",
 		"@itrocks/decorator": "latest",
 		"@itrocks/property-type": "latest",
+		"@itrocks/property-view": "latest",
 		"@itrocks/reflect": "latest"
 	},
 	"description": "Marks class properties to show as columns in a list/table view",
@@ -56,5 +57,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/list-properties.d.ts",
-	"version": "0.1.2"
+	"version": "0.1.3"
 }

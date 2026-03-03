@@ -6,13 +6,15 @@ import { representativeOf }    from '@itrocks/class-view'
 import { decorateCallback }    from '@itrocks/decorator/class'
 import { decoratorOfCallback } from '@itrocks/decorator/class'
 import { CollectionType }      from '@itrocks/property-type'
-import { ReflectClass }        from '@itrocks/reflect'
+import { displayOrderOf }      from '@itrocks/property-view'
+import { ReflectProperty }     from '@itrocks/reflect'
 
 const LIST = Symbol('list')
 
 export function defaultListProperties<T extends object>(target: Type<T>)
 {
-	const properties = Array.from(new ReflectClass<T>(target).properties)
+	const properties = displayOrderOf(target)
+		.map(property => new ReflectProperty(target, property))
 		.filter(property => !(property.type.lead instanceof CollectionType))
 		.map(property => property.name)
 	return (properties.length <= 5)
