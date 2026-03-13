@@ -1,4 +1,3 @@
-import { KeyOf }               from '@itrocks/class-type'
 import { ObjectOrType }        from '@itrocks/class-type'
 import { Type }                from '@itrocks/class-type'
 import { typeOf }              from '@itrocks/class-type'
@@ -22,12 +21,12 @@ export function defaultListProperties<T extends object>(target: Type<T>)
 		: representativeOf(target)
 }
 
-export function List<T extends object>(...properties: KeyOf<T>[])
+export function List<T extends object>(...properties: Array<keyof T>)
 {
 	return decorateCallback<T>(LIST, target => properties.length ? properties : defaultListProperties(target))
 }
 
 export function listOf<T extends object>(target: ObjectOrType<T>)
 {
-	return decoratorOfCallback<T, KeyOf<T>[]>(target, LIST, target => defaultListProperties(typeOf(target)))
+	return decoratorOfCallback<T, Array<keyof T>>(target, LIST, target => defaultListProperties(typeOf(target)))
 }
