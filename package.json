@@ -13,7 +13,7 @@
 	},
 	"description": "Marks class properties to show as columns in a list/table view",
 	"devDependencies": {
-		"typescript": "^6.0"
+		"typescript": "^7.0"
 	},
 	"engines": {
 		"node": ">=24"
@@ -49,5 +49,5 @@
 	"scripts": {
 		"build": "tsc"
 	},
-	"version": "0.2.1"
+	"version": "0.2.2"
 }
